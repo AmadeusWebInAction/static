@@ -1,0 +1,39 @@
+:root {
+	--cnvs-content-padding: 15px;
+	--no-slider-background: #666;
+}
+
+body.site-amadeusweb.theme-canvas #content { background-color: azure; }
+body.site-amadeuswebworld.theme-canvas #content { background-color: cornsilk; }
+
+body.no-slider #header, body.no-slider #header-wrap { background-color: var(--no-slider-background); }
+
+/* menu */
+.of-node .menu-link { padding-top: 4px; padding-bottom: 4px; }
+
+/* content */
+.content-box:not(.plain) {
+	background-color: #fff;
+	padding: 25px;
+	border-radius: 15px;
+	border: 1pt solid #666;
+	margin-top: 10px;
+	margin-bottom: 25px; 
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.content-box blockquote { padding: 5px 0 5px 10px; font-size: inherit; background-color: rgba(240, 240, 134, 0.363);
+	border: 1pt solid var(--cnvs-contrast-200, #aaa); border-left-width: 8px; }
+.content-box blockquote p { margin: 4px 0 4px 0; }
+
+/* image related */
+.img-max-500 { max-width: 500px; }
+.img-max-400 { max-width: 400px; }
+.img-max-300 { max-width: 300px; }
+.img-max-200 { max-width: 200px; }
+
+/* https://stackoverflow.com/a/24630169 */
+@media screen and (min-aspect-ratio: 13/9) { .show-in-portrait { display: none; } } 
+@media screen and (max-aspect-ratio: 13/9) { .show-in-landscape { display: none; } }
+
+/*  */
