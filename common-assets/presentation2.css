@@ -1,19 +1,12 @@
 body { background-color: #B571B1!important; font-weight: 900; }
 .reveal *, .reveal h1, .reveal h2, .reveal h3 { color: #fff; }
 
-#topbar { background-color: #c28dbf; z-index:500; line-height: 20px; font-size: 16px; width: fit-content;
-	margin: 10px auto; padding: 8px; vertical-align: middle; }
+#topbar-wrapper { position: absolute; margin-top: 10px; z-index:500; width: 100%; }
+#topbar { background-color: #c28dbf; line-height: 20px; font-size: 16px; width: fit-content; padding: 8px; margin: auto; }
 #topbar img { vertical-align: middle; }
 
-.box-shadow {
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+.box-shadow { border-radius: 20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
 
-
-.slides { text-align: center; }
+#topbar-wrapper, .slides { text-align: center; }
 .slides ul { list-style-type: 0; }
 .slides li { padding: 4px; border-bottom: 1px #999 solid; }
-
-/* https://www.h3xed.com/web-development/how-to-make-a-responsive-100-width-youtube-iframe-embed */
-.video-container { position: relative; width: 100%; height: 0; padding-bottom: 56.25%; margin-bottom: 20px; }
-.video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
