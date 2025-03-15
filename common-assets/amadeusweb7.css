@@ -1,21 +1,24 @@
 :root {
 	--cnvs-content-padding: 15px;
+	--footer-widgets-link: #666;
 	--no-slider-background: #666;
 	--scrollbar-width: calc(100vw - 100%); /* https://stackoverflow.com/a/56382662 */
 }
 
-body.site-amadeusweb.theme-canvas #content { background-color: azure; }
-body.site-amadeusweb { --cnvs-footer-bg: rgb(181, 238, 238); }
-body.site-amadeuswebworld.theme-canvas #content { background-color: cornsilk; }
-body.site-amadeuswebworld { --cnvs-footer-bg: rgb(241, 229, 178); }
+body.site-amadeusweb.theme-canvas { --cnvs-body-bg: azure;  }
+body.site-amadeusweb { --cnvs-footer-bg: rgb(181, 238, 238); --after-content-background: aliceblue; }
+body.site-amadeuswebworld.theme-canvas { background-color: cornsilk; }
+body.site-amadeuswebworld { --cnvs-footer-bg: rgb(241, 229, 178); --after-content-background: rgb(250, 246, 229); }
 
 body.no-slider #header:not(.not-dark), body.no-slider #header #header-wrap:not(.not-dark) { background-color: var(--no-slider-background); }
 
+.content-wrap { overflow: visible; }
 body.has-chatra { padding-bottom: 90px; }
 
 /* theme adjustments */
+.footer-widgets-wrap a { color: var(--footer-widgets-link); font-weight: bold; letter-spacing: 1px; }
 .device-xs #header-wrap #logo img { height: auto; }
-.device-xs .container { margin: 10px 10px 25px 10px; width: calc(100vw - 20px - var(--scrollbar-width)); }
+.device-sm .container, .device-xs .container { margin: 10px 10px 25px 10px; width: calc(100vw - 20px - var(--scrollbar-width)); }
 body.theme-canvas #content { padding-bottom: 10px; }
 body.theme-canvas .of-node .menu-link { padding-top: 4px; padding-bottom: 4px; } /* menu */
 
@@ -35,6 +38,10 @@ body.theme-canvas .of-node .menu-link { padding-top: 4px; padding-bottom: 4px; }
 .content-box blockquote { padding: 5px 0 5px 10px; font-size: inherit; background-color: rgba(240, 240, 134, 0.363);
 	border: 1pt solid var(--cnvs-contrast-200, #aaa); border-left-width: 8px; }
 .content-box blockquote p { margin: 4px 0 4px 0; }
+
+/* after content */
+div#nodes, div#pages { background-color: var(--after-content-background, #f0f0f0); }
+div#nodes table, div#pages table { background-color: white; }
 
 /* image related */
 .img-max-500 { max-width: min(500px, 92vw); }
