@@ -2,8 +2,8 @@
 .engage section { padding: 0; }
 
 .toggle-engage { cursor: pointer; }
-.engage { border: 1px solid #666; border-radius: 20px; padding: 30px; }
-.engage input[type="checkbox"] { margin-right: 6px; }
+.engage input[type="checkbox"] { position: absolute; margin: 6px 0 0 -20px; }
+.engage li { text-indent: 0px; margin-bottom: 6px; }
 .engage .full-width { width: 100%; margin-bottom: 15px; }
 
 .engage h1, .engage h2 { font-size: inherit; padding: 6px; border: 1px solid gray; border-radius: 8px; }
