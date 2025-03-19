@@ -7,7 +7,7 @@
 
 body.site-amadeusweb.theme-canvas, .site-amadeusweb #content { --cnvs-body-bg: azure;  }
 body.site-amadeusweb { --cnvs-footer-bg: rgb(181, 238, 238); --after-content-background: aliceblue; }
-body.site-amadeuswebworld.theme-canvas, .site-amadeuswebworld #content { background-color: cornsilk; }
+body.site-amadeuswebworld.theme-canvas, .site-amadeuswebworld #content { --cnvs-body-bg: cornsilk; }
 body.site-amadeuswebworld { --cnvs-footer-bg: rgb(241, 229, 178); --after-content-background: rgb(250, 246, 229); }
 
 body.no-slider #header:not(.not-dark), body.no-slider #header #header-wrap:not(.not-dark) { background-color: var(--no-slider-background); }
@@ -51,6 +51,13 @@ a.site-core { background-image: url(https://v7.amadeusweb.com/amadeusweb-icon.pn
 
 #content ul, #content ol { padding-left: 30px; }
 
+.node-share .content-wrap > div.container { margin: auto; max-width: min(800px, calc(100vw - 100px - var(--scrollbar-width)))!important; text-align: center; }
+.node-share .content-box div { background-color: var(--cnvs-footer-bg, #999); padding: 5px; border-radius: 10px; font-size: 110%; font-weight: bolder; margin-top: 15px; }
+.node-share .content-box div label { display: unset; font-size: larger; }
+.node-share .content-box div textarea { margin: 20px auto; width: 95%; text-align: center; }
+.node-share .content-box .text-copied { background-color: var(--amw-copied-bg, rgb(190, 246, 213)); }
+.node-share .content-box div .fa-2x { position: relative; top: 8px; }
+
 /* after content */
 div.after-content { background-color: var(--after-content-background, #f0f0f0)!important; }
 #statistics .after-content { background-color: rgb(255, 229, 195)!important; }
@@ -59,7 +66,8 @@ div.after-content { background-color: var(--after-content-background, #f0f0f0)!i
 ul.block-links li { list-style-type: none; margin-bottom: 8px; }
 
 /* image related */
-.img-max-500 { max-width: min(500px, 92vw); }
+.img-fluid { width: 100%; }
+.img-max-500 { max-width: 500px; }
 .img-max-400 { max-width: 400px; }
 .img-max-300 { max-width: 300px; }
 .img-max-200 { max-width: 200px; }
