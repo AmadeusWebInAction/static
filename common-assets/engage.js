@@ -1,5 +1,6 @@
 /**
  * v2.5 of the engage feature - a part of v7.AmadeusWeb.com
+ *     .5 - make it more fluent / friendly.
  * **** Get Emails with details on each call to action.
  * 
  * DO NOTE: This is proprietary software by Imran Ali Namazi.
@@ -24,9 +25,8 @@ $(document).ready(function() {
 
 	divs.each(function(ix, div) {
 		div = $(div);
-		var name = div.data('name');
-		$('<input type="text" class="name full-width" placeholder="[My Name]" />').appendTo(div);
-		$('<button class="btn btn-primary btn-large full-width">Prepare message to ' + name + '</button>').click(prepareEmail).appendTo(div);
+		$('textarea', div).on('change, input', textAreaAutoHeight);
+		$('.prepare-message', div).click(prepareMessage);
 	});
 
 	$('.toggle-engage').click(function() {
@@ -44,87 +44,106 @@ $(document).ready(function() {
 	});
 
 
-	function prepareEmail() {
+	function prepareMessage() {
 		var div = $(this).closest('.engage');
 
-		var ta = $('.engage textarea');
-		if (ta.length == 0)
-			ta = $('<textarea rows="8" style="width: 100%; background-color: #aaf"></textarea>').appendTo(div);
+		var messageBox = $('textarea.message-content', div);
+		var hiddenLinks = $('.action-wrapper .d-none', div);
+		var disabledLinks = $('.action-wrapper .disabled', div);
 
-		var items = $('.engage input[type=checkbox]:checked');
+		var items = $('input[type=checkbox]:checked, textarea:not(.draft-message):is("visible")', div);
 		if (items.length == 0) {
-			ta.text('No Items Ticked');
-		} else {
-			var headings = {}, firstHeading = true, output = '';
-
-			items.each(function() {
-				var item = $(this).closest('li');
-				var note = $('input[type=text]', item);
-				var ul = item.closest('ul, ol');
-				var hx = ul.prevAll('h2:first, h3:first').text();
-				if (!headings[hx]) {
-					if (!firstHeading) output += "\r\n\r\n";
-					firstHeading = false;
-					output += "# " + hx;
-					headings[hx] = true;
-				}
-				output += "\r\n" + item.text() + "\r\n -> " + note.val();
-			});
-
-			ta.text(output);
-			prepareEmailLink(output, div);
+			messageBox.text('No Items Ticked');
+			messageBox.removeClass('d-none');
+			return;
 		}
+		
+		var siteName = div.data('site-name');
+		if (!siteName) siteName = 'Amadeus Web World';
+		var headings = {}, firstHeading = true, output = 'Dear ' + siteName + ",\r\n\r\n";
+
+		items.each(function() {
+			var item = $(this).closest('li');
+			var note = $('input[type=text], textarea', item);
+			var ul = item.closest('ul, ol');
+			var hx = ul.prevAll('h2:first, h3:first').text();
+			if (!headings[hx]) {
+				if (!firstHeading) output += "\r\n\r\n\r\n";
+				firstHeading = false;
+				output += "# " + hx;
+				headings[hx] = true;
+			}
+			output += "\r\n\r\n" + item.text() + "\r\n -> " + note.val();
+		});
+
+		const caseId = URL.createObjectURL(new Blob()).substr(-6).toUpperCase();
+		const date_r = new Date().toDateString();
+		output += "\r\n\r\nRegards,\r\n ~ Me\r\n\r\n[Case Number:"
+			+ caseId + ", Date Raised: " + date_r + "]";
+		
+		messageBox.removeClass('d-none').text(output).trigger('input');
+		hiddenLinks.removeClass('d-none');
+		disabledLinks.removeClass('disabled');
+		prepareMessageLinks(output, div, caseId);
 	}
 
-	function prepareEmailLink(body, div) {
+	function prepareMessageLinks(message, div, caseId, siteName) {
 		var emailTo = div.data('to');
 		var emailCc = div.data('cc');
-		var name = div.data('name');
 
 		var email = emailTo.replace(';', '%3B%20');
 
-		var user = $('.name', div).val();
+		var user = $('.sender-name', div).val();
 
-		var subject = '%name% enquiry by "%user%" on %date% from %site%'
-				.replace('%name%', name)
+		var subject = '[%caseId%] "%user%" responds on page: %site%'
+				.replace('%caseId%', caseId)
 				.replace('%user%', user)
-				.replace('%site%', document.title)
-				.replace('%date%', new Date().toDateString())
+				.replace('%site%', siteName)
 			;
 
-		body += "\r\n\r\n\r\n" + subject + ' at' + "\r\n -> " + location.href;
+		let body = message + "\r\n\r\n\r\n" + subject + ' at' + "\r\n -> " + location.href;
 
 		body = encodeURIComponent(body).replace(':', '%3A');
 
-		var link = 'mailto:%email%?cc=%cc%&subject=%subject%&body=%body%'
+		var mailLink = 'mailto:%email%?cc=%cc%&subject=%subject%&body=%body%'
 			.replace('%email%', email)
 			.replace('%cc%', emailCc)
 			.replace('%subject%', encodeURIComponent(subject))
 			.replace('%body%', body);
 
-		var tag = $('.btn-send', div);
+		var whatsappLink = div.data('whatsapp') + encodeURIComponent(
+			message + ",\r\n" + ' at: ' +
+			location.href + ' (' + siteName + ')').replace(':', '%3A');
+		console.info(whatsappLink);
 
-		if (tag.length == 0)
-			tag = $('<a class="btn-send btn btn-primary btn-fill" target="_blank" />')
-				.text('Send Email (opens mail client)')
-				.appendTo(div);
-
-		tag.attr('href', link);
-		//TODO: why doesnt email trigger click work?
-		//setTimeout(function () { tag.trigger('click') }, 200);
+		$('.send-via-email', div).attr('href', mailLink);
+		$('.send-via-whatsapp', div).attr('href', whatsappLink);
 	}
 
 	function checkboxAdd(ix, el) {
 		el = $(el);
 		el.html('<label>' + el.html() + '</label>');
-		var label = $('label', el);
-		$('<input type="checkbox" />').on('change', checkboxToggle).prependTo(label);
-		$('<br/><input type="text" style="display: none; width: 100%" />').appendTo(el);
+
+		//ty always for now
+		const wantsOpen = el.html().includes('<!--open-->');
+
+		$('<input class="form-check-input" type="checkbox" ' +
+			(wantsOpen ? ' checked' : '') +' />')
+			.on('change', checkboxToggle)
+			.prependTo($('label', el));
+
+			//registers auto height in document.ready's divs.each
+		$('<br/><textarea class="form-control' + (wantsOpen ? '' : ' d-none') + ' w-100" rows="1"></textarea>').appendTo(el);
+	}
+
+	function textAreaAutoHeight(ev) {
+		this.style.height = '1px';
+		this.style.height = this.scrollHeight + 'px';
 	}
 
 	function checkboxToggle(ev) {
 		if (event.originalEvent && $(event.originalEvent.target).closest('a').length) return;
-		const txt = $('input[type=text]', $(this).closest('li'));
+		const txt = $('input[type=text], textarea', $(this).closest('li'));
 		if($(this).is(':checked')) txt.show(); else txt.hide();
 	}
 });

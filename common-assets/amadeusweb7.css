@@ -5,6 +5,7 @@
 	--scrollbar-width: calc(100vw - 100%); /* https://stackoverflow.com/a/56382662 */
 }
 
+body { cursor: default; }
 body.site-amadeusweb.theme-canvas, .site-amadeusweb #content { --cnvs-body-bg: azure;  }
 body.site-amadeusweb { --cnvs-footer-bg: rgb(181, 238, 238); --after-content-background: aliceblue; }
 body.site-amadeuswebworld.theme-canvas, .site-amadeuswebworld #content { --cnvs-body-bg: cornsilk; }
@@ -59,7 +60,7 @@ a.site-core { background-image: url(https://v7.amadeusweb.com/amadeusweb-icon.pn
 .node-share .content-box div .fa-2x { position: relative; top: 8px; }
 
 /* after content */
-div.after-content { background-color: var(--after-content-background, #f0f0f0)!important; }
+.after-content { background-color: var(--after-content-background, #f0f0f0)!important; }
 #statistics .after-content { background-color: rgb(255, 229, 195)!important; }
 .after-content table, .after-content .block-links { background-color: white; }
 .after-content .block-links { padding: 15px; border: 1px solid #666; }

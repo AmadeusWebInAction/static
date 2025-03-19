@@ -1,21 +1,14 @@
 /* ENGAGE - TODO: colouring! */
-.engage section { padding: 0; }
+.engage { padding: 0; --bs-border-width: 4px; }
 
-.toggle-engage { cursor: pointer; }
-.engage input[type="checkbox"] { position: absolute; margin: 6px 0 0 -20px; }
-.engage li { text-indent: 0px; margin-bottom: 6px; }
-.engage .full-width { width: 100%; margin-bottom: 15px; }
-
-.engage h1, .engage h2 { font-size: inherit; padding: 6px; border: 1px solid gray; border-radius: 8px; }
-.engage h1 { background-color: var(--amw-site-background, #c9a45e); }
+.engage h2, .engage h3 { font-size: inherit; padding: 6px; border: 1px solid gray; border-radius: 8px; }
+.engage h3 { background-color: var(--amw-site-background, #c9a45e); }
 .engage h2 { background-color: var(--amw-footer-background, rgb(151, 197, 182)); } 
 
-.engage ol, .engage ul, .engage li { list-style-type: none; }
-.engage label { text-transform: none!important; font-size: 110%; }
+.engage ol, .engage ul { list-style-type: none; margin: 4px 0 15px 20px; }
+.engage li { margin-bottom: 8px; border: 2px solid var(--after-content-background, #ccc); padding: 8px 6px 8px 12px; }
+.engage label, .engage p { text-transform: none!important; font-size: 32px; }
+.engage input[type="checkbox"] { position: absolute; margin: -2px 0 0 -60px; width: 40px; height: 40px; }
 
 .btn-fill { margin: 10px; width: 100%; padding: 15px; }
 .btn-fill:hover { text-decoration: underline; }
-.btn-site, .btn-site:hover { background-color: rgb(233, 143, 143); }
-.btn-node, .btn-node:hover { background-color: rgb(129, 226, 129); }
-.btn-node-item, .btn-node-item:hover { background-color: rgb(135, 135, 224); }
-.btn-promotion, .btn-promotion:hover { background-color: rgb(231, 231, 141); }
