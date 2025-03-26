@@ -6,8 +6,10 @@
 .engage h2 { background-color: var(--amw-footer-background, rgb(151, 197, 182)); } 
 
 .engage ol, .engage ul { list-style-type: none; margin: 4px 0 15px 20px; }
-.engage li { margin-bottom: 8px; border: 2px solid var(--after-content-background, #ccc); padding: 8px 6px 8px 12px; }
+.engage li { margin-bottom: 20px; background-color: var(--after-content-background, #ccc);
+	padding: 8px 6px 8px 12px; border-radius: 15px; }
 .engage label, .engage p { text-transform: none!important; font-size: 32px; }
+.engage label { width: 100%; }
 .engage input[type="checkbox"] { position: absolute; margin: -2px 0 0 -60px; width: 40px; height: 40px; }
 
 .btn-fill { margin: 10px; width: 100%; padding: 15px; }

@@ -84,7 +84,7 @@ $(document).ready(function() {
 		messageBox.removeClass('d-none').text(output).trigger('input');
 		hiddenLinks.removeClass('d-none');
 		disabledLinks.removeClass('disabled');
-		prepareMessageLinks(output, div, caseId);
+		prepareMessageLinks(output, div, caseId, siteName);
 	}
 
 	function prepareMessageLinks(message, div, caseId, siteName) {
@@ -124,16 +124,18 @@ $(document).ready(function() {
 		el = $(el);
 		el.html('<label>' + el.html() + '</label>');
 
-		//ty always for now
 		const wantsOpen = el.html().includes('<!--open-->');
+		const wantsLarge = el.html().includes('<!--large-->');
 
 		$('<input class="form-check-input" type="checkbox" ' +
-			(wantsOpen ? ' checked' : '') +' />')
+			(wantsOpen ? ' checked readonly disabled' : '') +' />')
 			.on('change', checkboxToggle)
 			.prependTo($('label', el));
 
 			//registers auto height in document.ready's divs.each
-		$('<br/><textarea class="form-control' + (wantsOpen ? '' : ' d-none') + ' w-100" rows="1"></textarea>').appendTo(el);
+		$('<br/><textarea class="form-control w-100"' +
+			(wantsOpen ? '' : 'style="display: none;" ') + ' rows="' +
+			(wantsLarge ? '3' : '1') + '"></textarea>').appendTo(el);
 	}
 
 	function textAreaAutoHeight(ev) {

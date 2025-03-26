@@ -67,6 +67,9 @@ a.site-core { background-image: url(https://v7.amadeusweb.com/amadeusweb-icon.pn
 ul.block-links li { list-style-type: none; margin-bottom: 8px; }
 
 /* image related */
+.has-floating-images::after { display: block; clear: both; content: ''; }
+.float-left { float: left; }
+.float-right { float: right; }
 .img-fluid { width: 100%; }
 .img-max-500 { max-width: 500px; }
 .img-max-400 { max-width: 400px; }
