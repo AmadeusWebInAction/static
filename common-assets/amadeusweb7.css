@@ -13,6 +13,8 @@ body.site-amadeuswebworld { --cnvs-footer-bg: rgb(241, 229, 178); --after-conten
 
 body.no-slider #header:not(.not-dark), body.no-slider #header #header-wrap:not(.not-dark) { background-color: var(--no-slider-background); }
 
+body.theme-canvas .menu-link { padding-top: 10px; padding-bottom: 10px; } /* menu */
+
 .content-wrap { overflow: visible; }
 body.has-chatra { padding-bottom: 90px; }
 #gotoTop { bottom: 20px!important; }
@@ -28,7 +30,8 @@ body.theme-canvas .of-node .menu-link { padding-top: 4px; padding-bottom: 4px; }
 
 #content a.icon { margin-left: 8px; text-decoration: underline overline; }
 a.icon { padding-left: 35px; background-repeat: no-repeat; background-position: top left; background-size: 30px 30px; }
-a.site-daivism { background-image: url(daivism-icon.png); }
+a.site-wellspring { background-image: url(https://amadeusweb.world/movements/wellspring/assets/wellspring-icon.png); }
+a.site-imran, .node-imran .all-links-external a { background-image: url(https://amadeusweb.world/lightworkers/imran/assets/imran-ali-namazi-icon.png); }
 a.site-world { background-image: url(https://amadeusweb.world/amadeuswebworld-icon.png?v=1); }
 a.site-web { background-image: url(https://amadeusweb.com/amadeusweb-icon.png?v=1); }
 a.site-core { background-image: url(https://v7.amadeusweb.com/amadeusweb-icon.png?v=1); }

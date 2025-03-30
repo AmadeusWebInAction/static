@@ -8,3 +8,13 @@ h2.amadeus-icon { font-size: 120%; padding: 5px; }
 table.headings-on-left th { text-align: right; }
 table.headings-on-left td, .header th.left { text-align: left; }
 table.headings-on-left .header { text-transform: uppercase; background-color: antiquewhite!important; }
+table.autosize { width: min-content; }
+.all-links-external a { background: transparent url(external-icon.png) no-repeat center right;
+	padding-right: 40px; background-size: 30px; line-height: 40px; display: inline-block; }
+
+/* LISTS */
+
+.box-like-list ul { list-style-type: none; }
+.box-like-list li { margin-top: 15px; }
+.box-like-list li a { display: block; }
+.box-like-list .selected { border: ridge darkgoldenrod 4px; padding: 8px 0 8px 0; border-style: ridge none ridge none; }
