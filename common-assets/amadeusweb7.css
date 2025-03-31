@@ -3,6 +3,8 @@
 	--footer-widgets-link: #666;
 	--no-slider-background: #666;
 	--scrollbar-width: calc(100vw - 100%); /* https://stackoverflow.com/a/56382662 */
+	--alternate-row-bg: #E2E2E2;
+	--alternate-box-bg: #EEE;
 }
 
 body { cursor: default; }
@@ -92,4 +94,9 @@ div.toolbar { background-color: white; padding: 10px 20px 10px 20px!important; w
 a.is-full-screen { position: absolute; top: 80px; right: 20px; z-index: 1200; }
 iframe.is-full-screen { position: absolute; top: 60px; right: 0; bottom: 10px; left: 10px; z-index: 1100; }
 
-/*  */
+/* LISTS & TABLES */
+.alternate-box { background-color: var(--alternate-box-bg, rgba(224, 224, 255))!important; }
+.striped-list li:nth-of-type(even) { background-color: var(--alternate-row-bg, rgba(224, 255, 224))!important; }
+.white-list { background-color: #fff; }
+.reset-list { padding-left: 0!important; }
+.reset-list, .reset-list li { margin-left: 0; }

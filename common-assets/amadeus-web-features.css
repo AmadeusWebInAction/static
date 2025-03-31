@@ -15,6 +15,6 @@ table.autosize { width: min-content; }
 /* LISTS */
 
 .box-like-list ul { list-style-type: none; }
-.box-like-list li { margin-top: 15px; }
+.box-like-list li { padding: 8px 0 8px 5px; }
 .box-like-list li a { display: block; }
 .box-like-list .selected { border: ridge darkgoldenrod 4px; padding: 8px 0 8px 0; border-style: ridge none ridge none; }
