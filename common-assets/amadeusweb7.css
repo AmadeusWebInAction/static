@@ -22,6 +22,9 @@ body.theme-canvas .menu-link { padding-top: 10px; padding-bottom: 10px; } /* men
 body.has-chatra { padding-bottom: 90px; }
 #gotoTop { bottom: 20px!important; }
 
+/* menu */
+body:not(.is-expanded-menu) .primary-menu a { font-size: 130%; padding-top: 15px; padding-bottom: 15px; }
+
 /* theme adjustments */
 .footer-widgets-wrap a { color: var(--footer-widgets-link); font-weight: bold; letter-spacing: 1px; }
 .footer-widgets a, a.icon { display: inline-block; margin-top: 6px; line-height: 30px; }
