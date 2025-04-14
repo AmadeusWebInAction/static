@@ -68,6 +68,8 @@ a.site-core { background-image: url(https://v7.amadeusweb.com/amadeusweb-icon.pn
 .node-share .content-box .text-copied { background-color: var(--amw-copied-bg, rgb(190, 246, 213)); }
 .node-share .content-box div .fa-2x { position: relative; top: 8px; }
 
+.hide-h2 h2 { display: none; } /* articles page... */
+
 /* after content */
 .after-content { background-color: var(--after-content-background, #f0f0f0)!important; }
 #statistics .after-content { background-color: rgb(255, 229, 195)!important; }
