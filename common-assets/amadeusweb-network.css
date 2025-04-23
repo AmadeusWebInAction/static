@@ -1,0 +1,14 @@
+:root {
+	--footer-widgets-link: #666;
+	--no-slider-background: #666;
+}
+
+body.site-amadeusweb.theme-canvas, .site-amadeusweb #content { --cnvs-body-bg: azure;  }
+body.site-amadeusweb { --cnvs-footer-bg: rgb(181, 238, 238); --after-content-background: aliceblue; }
+body.site-amadeuswebworld.theme-canvas, .site-amadeuswebworld #content { --cnvs-body-bg: cornsilk; }
+body.site-amadeuswebworld { --cnvs-footer-bg: rgb(241, 229, 178); --after-content-background: rgb(250, 246, 229); }
+
+
+body.no-slider #header:not(.not-dark), body.no-slider #header #header-wrap:not(.not-dark) { background-color: var(--no-slider-background); }
+
+.device-xs #header-wrap #logo img { height: auto; }
