@@ -78,7 +78,7 @@ $(document).ready(function() {
 
 		const caseId = URL.createObjectURL(new Blob()).substr(-6).toUpperCase();
 		const date_r = new Date().toDateString();
-		output += "\r\n\r\nRegards,\r\n ~ Me\r\n\r\n[Case Number:"
+		output += "\r\n\r\nRegards,\r\n --- [Me]\r\n\r\n[Case Number:"
 			+ caseId + ", Date Raised: " + date_r + "]";
 		
 		messageBox.removeClass('d-none').text(output).trigger('input');
