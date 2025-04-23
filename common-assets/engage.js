@@ -118,6 +118,10 @@ $(document).ready(function() {
 
 		$('.send-via-email', div).attr('href', mailLink);
 		$('.send-via-whatsapp', div).attr('href', whatsappLink);
+
+		$('.send-via-whatsapp.send-icon, .send-via-email.send-icon', div).removeClass('disabled').removeClass('bg-dark-subtle');
+		$('.send-via-whatsapp.send-icon', div).addClass('bg-whatsapp');
+		$('.send-via-email.send-icon', div).addClass('bg-info');
 	}
 
 	function checkboxAdd(ix, el) {
