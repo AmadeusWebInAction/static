@@ -6,11 +6,15 @@
 	--scrollbar-width: calc(100vw - 100%); /* https://stackoverflow.com/a/56382662 */
 	--alternate-row-bg: #E2E2E2;
 	--alternate-box-bg: #EEE;
+	--cnvs-header-height-shrink: 80px;
 }
 
 body { cursor: default; }
 
 body.theme-canvas .menu-link { padding-top: 10px; padding-bottom: 10px; } /* menu */
+#header { z-index: 1050; }
+.device-down-md #page-menu { --cnvs-page-submenu-sticky-offset: 0px!important; }
+
 
 .content-wrap { overflow: visible; }
 body.has-chatra { padding-bottom: 90px; }
